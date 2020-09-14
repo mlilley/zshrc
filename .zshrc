@@ -1,6 +1,9 @@
 setopt AUTO_CD
 setopt PROMPT_SUBST
 
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[4~" end-of-line
+
 __prompt_awesome_time_bg="#e12525"
 __prompt_awesome_time_txt="#ffff00"
 __prompt_awesome_path_bg="#901f19"
