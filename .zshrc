@@ -34,7 +34,7 @@ preexec () { echo -ne "\e[0m" }
 PROMPT='$(__prompt_awesome)'
 
 [ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
-[ -d "$HOME/.npm-global/bin" ] && PATH="$HOME/.npm-global:$PATH"
+[ -d "$HOME/.npm/bin" ] && PATH="$HOME/.npm/bin:$PATH"
 
 alias ls="ls -Gh"
 alias grep="grep --color=always"
