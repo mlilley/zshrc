@@ -1,20 +1,17 @@
 # ZSHRC
 
-My customization for vanilla macos zsh.
-
-* increased visibility prompt, showing time, path, git info (branch, dirty/clean status), and last command exitcode.
-* working home/end keys
+* impoved prompt with time, path, git info (branch, dirty/clean status), and last exitcode.
 * enhanced tab completion (including for git)
 * change directories without having to type 'cd'
+* working home/end keys
 
 ![prompt example](prompt.png)
 
 ## Item2
 
-Iterm 2 supports the required powerline glyphs already, but its default color scheme is crappy: 
-
-* Preferences > Profiles > Default > Text > enable "Use built-in Powerline glyphs
-* Preferences > Profiles > Default > Colors > Color Presets > import and apply the supplied xterm.itermcolors file
+Iterm2 supports the required powerline glyphs already, but its default color scheme needs an update: 
+* Preferences > Profiles > Default > Text > enable `Use built-in Powerline glyphs`
+* Preferences > Profiles > Default > Colors > Color Presets > import and apply the supplied `xterm.itermcolors` file
 
 ## Terminal
 
