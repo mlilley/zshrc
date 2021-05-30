@@ -1,0 +1,47 @@
+# enable prompt expansion for promps needing command substitution
+setopt PROMPT_SUBST
+
+# render typed commands in bold
+zle_highlight=(default:bold)
+
+# colors (time, path, git, exitcodes)
+TB="9"
+TF="11"
+PB="1"
+PF="15"
+GB="237"
+GF="10"
+GF2="197"
+TKF="10"
+CRF="1"
+
+function gitStatus() {
+  # CALL: gitStatus <color-when-clean> <color-when-dirty
+  # Returns name of current branch, colored according to clean/dirty status
+  local b=`/usr/local/bin/git symbolic-ref HEAD --short 2> /dev/null`
+  if [[ -n "$b" ]]; then
+    if [[ -z `/usr/local/bin/git status --porcelain 2> /dev/null` ]]; then
+      echo "%F{$1}$b"
+    else
+      echo "%F{$2}$b"
+    fi
+  fi
+}
+
+function leftPrompt() {
+  local git="$(gitStatus $GF $GF2)"
+  local prompt="%K{$TB}%F{0}%K{$TB}%F{$TF}%B %T %K{$PB}%F{$TB}%F{$PF}%B %~ %b"
+  [[ -n "$git" ]] && prompt="$prompt%K{$GB}%F{$PB}%F{$FG}%B $git %b%K{$PB}%F{$GB}"
+  prompt="$prompt%k%F{$PB}%f"
+  echo "$prompt"
+}
+
+function rightPrompt() {
+  local code=$?
+  [[ $code -eq 0 ]] && echo "%F{$TKF}%B\u2714%f%b" || echo "%F{$CRF}%B\u2718%f%b$code"
+}
+
+# Single quotes required to ensure function evaluation for every prompt render
+export PROMPT='$(leftPrompt) '
+export RPROMPT='$(rightPrompt)' 
+
