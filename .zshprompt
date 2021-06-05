@@ -5,15 +5,36 @@ setopt PROMPT_SUBST
 zle_highlight=(default:bold)
 
 # colors (time, path, git, exitcodes)
-TB="9"
+# Refer: https://jonasjacek.github.io/colors/
+
+# common
 TF="11"
-PB="1"
 PF="15"
 GB="237"
 GF="10"
 GF2="197"
 TKF="10"
 CRF="1"
+
+# -- uncomment your choice of ---
+
+# red
+#TB="9"
+#PB="1"
+
+# green
+#TB="34"
+#PB="28"
+
+# blue
+#TB="27"
+#PB="20"
+
+# purple
+TB="129"
+PB="54"
+
+# --
 
 function gitStatus() {
   # CALL: gitStatus <color-when-clean> <color-when-dirty
@@ -32,7 +53,7 @@ function leftPrompt() {
   local git="$(gitStatus $GF $GF2)"
   local prompt="%K{$TB}%F{0}%K{$TB}%F{$TF}%B %T %K{$PB}%F{$TB}%F{$PF}%B %~ %b"
   [[ -n "$git" ]] && prompt="$prompt%K{$GB}%F{$PB}%F{$FG}%B $git %b%K{$PB}%F{$GB}"
-  prompt="$prompt%k%F{$PB}%f"
+  prompt="$prompt%F{$PB}%k%f"
   echo "$prompt"
 }
 
