@@ -1,40 +1,38 @@
+# color scheme (choices: red, blue, green, purple)
+SCHEME="red"  
+
 # enable prompt expansion for promps needing command substitution
 setopt PROMPT_SUBST
 
 # render typed commands in bold
 zle_highlight=(default:bold)
 
-# colors (time, path, git, exitcodes)
-# Refer: https://jonasjacek.github.io/colors/
-
-# common
-TF="11"
-PF="15"
-GB="237"
-GF="10"
-GF2="197"
-TKF="10"
-CRF="1"
-
-# -- uncomment your choice of ---
-
-# red
-#TB="9"
-#PB="1"
-
-# green
-#TB="34"
-#PB="28"
-
-# blue
-#TB="27"
-#PB="20"
-
-# purple
-TB="129"
-PB="54"
-
-# --
+# colors (ref: https://jonasjacek.github.io/colors/)
+TF="11"   # time fg
+PF="15"   # path fg
+GB="237"  # git bg
+GF="10"   # git fg (clean)
+GF2="197" # git fg (dirty)
+TKF="10"  # status tick
+CRF="1"   # status cross
+case $SCHEME in
+  green)
+    TB="34"  # time bg
+    PB="28"  # path bg
+    ;;
+  blue)
+    TB="27"  # time bg
+    PB="20"  # path bg
+    ;;
+  purple)
+    TB="129" # time bg 
+    PB="54"  # path bg
+    ;;
+  *)         # default: red
+    TB="9"   # time bg
+    PB="1"   # path bg 
+    ;;
+esac
 
 function gitStatus() {
   # CALL: gitStatus <color-when-clean> <color-when-dirty

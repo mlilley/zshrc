@@ -8,7 +8,7 @@ autoload -Uz compinit && compinit
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 
-# enable home/end keys (ubuntu?)
+# enable home/end keys (linux?)
 #bindkey "^[[1~" beginning-of-line
 #bindkey "^[[4~" end-of-line
 
