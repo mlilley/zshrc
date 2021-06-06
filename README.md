@@ -11,15 +11,19 @@
 * working home/end keys (macos)
 * choice of color schemes
 
+## Usage
+
+Copy `.zshrc` and `.zshprompt` to your home dir, then tweak your terminal client settings as per below.
+
 ## Iterm2
 
 Iterm2 needs a couple tweaks:
 * enable Powerline glyphs (Preferences > Profiles > Default > Text > Use built-in Powerline glyphs)
 * import and apply provided `xterm.itermcolors` file for proper xterm256 colors (Preferences > Profiles > Default > Colors > Color Presets)
 
-## Terminal
+## Apple Terminal
 
-Terminal requires installation and use a font with the required powerline glyphs, refer:
+Terminal requires installation and use of a font with Powerline glyphs, see:
 * https://github.com/supermarin/powerline-fonts
 * https://gist.github.com/lujiacn/32b598b1a6a43c996cbd93d42d466466
 
