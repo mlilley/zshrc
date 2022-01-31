@@ -15,6 +15,8 @@ bindkey "^[[F" end-of-line
 # prompt
 source $HOME/.zshprompt
 
-alias ls="ls -G"
+alias ls="ls -Ga"
 alias ll="ls -la"
 
+# needed for git commit signing
+export GPG_TTY=$(tty)
