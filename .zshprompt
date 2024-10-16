@@ -37,9 +37,9 @@ esac
 function gitStatus() {
   # CALL: gitStatus <color-when-clean> <color-when-dirty
   # Returns name of current branch, colored according to clean/dirty status
-  local b=`/usr/local/bin/git symbolic-ref HEAD --short 2> /dev/null`
+  local b=`git symbolic-ref HEAD --short 2> /dev/null`
   if [[ -n "$b" ]]; then
-    if [[ -z `/usr/local/bin/git status --porcelain 2> /dev/null` ]]; then
+    if [[ -z `git status --porcelain 2> /dev/null` ]]; then
       echo "%F{$1}$b"
     else
       echo "%F{$2}$b"
